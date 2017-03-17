@@ -171,3 +171,6 @@ df = pd.DataFrame(split_nums)
 df = df.apply(pd.to_numeric, args=('coerce',))
 
 print(main(df))
+# Completed in 0.4679758548736572 seconds
+# 70600674 in [89, 94, 97, 87]
+
