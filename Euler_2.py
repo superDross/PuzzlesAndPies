@@ -9,20 +9,16 @@ By considering the terms in the Fibonacci sequence whose values do not exceed fo
 import numpy as np
 
 def fibonacci(x):
-    all_data = []
-    data = []
+    n = np.arange(x+1)[1:]
+    for i in range(x-2):
+        n[i+2] = n[i] + n[i+1]
+    return n
 
-    for i in range(x):
-        if len(data) < 2:
-            data.append(i)
-        else:
-            new = sum(data)
-            data.append(new)
-            all_data.append(new)
-            data = data[1:]
+f = fibonacci(100)
+u = f[(f > 0) & (f <= 4000000)]
+even = u[u % 2 == 0]
 
-    return all_data
+total = np.sum(even)
 
-
-print(fibonacci(4000000))
-     
+# 4613732
+print(total)
