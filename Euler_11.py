@@ -29,13 +29,14 @@ arr = np.array([
         [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
        ])
 
-def max_sum_fours(arr):
-    ''' Creating a sliding window of every four values
+def max_sum_fours(arr, cd=4):
+    ''' Creating a sliding window of every given number of values
         in a given 1D array, multiply all values in each
         row and get the resulting maximum value.
 
     Args:
         arr: 1D NumPy array
+        cd: consectutive digits
 
     Example:
         arr = [1, 2, 3, 4, 5, 6]
@@ -44,10 +45,10 @@ def max_sum_fours(arr):
         max = 360
     '''
     length = arr.shape[0]
-    while (length-1) % 4 != 0:
+    while (length-1) % cd != 0:
         length -= 1
 
-    df = [np.multiply.reduce(arr[i:i+4]) for i in np.arange(length)]
+    df = [np.multiply.reduce(arr[i:i+cd]) for i in np.arange(length)]
     maximum = np.max(df)
 
     return maximum
