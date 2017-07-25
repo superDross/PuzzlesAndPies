@@ -16,4 +16,5 @@ def largest_palindrome(n):
     return arr[p]
 
 # 906609 = 993 * 913
-largest_palindrome(1000)
+answer = largest_palindrome(1000)
+print(answer)
