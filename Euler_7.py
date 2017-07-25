@@ -12,16 +12,17 @@ def prime_number(x):
         e.g. if x=100, get the 100th prime 
         number
     '''
-    store = []
     n = 2
+    c = 0 # counts number of prime numbers iterated through
 
-    while len(store) < x:
+    while c < x:
         if np.all(n % np.arange(2,n)):
-            store.append(n)
+            c += 1
+            yield n
         n += 1
 
-    return store[-1]
+
 
 # 104743
 answer = prime_number(10001)
-print(answer)
+print(list(answer)[-1])

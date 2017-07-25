@@ -4,7 +4,6 @@
 What is the smallest positive number that is evenly divisible by all of the numbers from 1 to 20?
 '''
 import numpy as np
-import itertools
 
 
 # Since we knwo 2520 is evenly divisible by the 1-10
