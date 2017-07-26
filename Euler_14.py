@@ -14,7 +14,6 @@ Which starting number, under one million, produces the longest chain?
 
 NOTE: Once the chain starts the terms are allowed to go above one million.
 '''
-# intially tried doing a recursive version of the below problem, but a stack overflow occurred.
 
 def collatz(n):
 

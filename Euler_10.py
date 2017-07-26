@@ -8,8 +8,6 @@ import numpy as np
 # a painfully SLOW solution. 
 # apparently the Sieve of Eratosthenes algorithm is best suited for this. This exercise highlights the need to know and understand existing algorithms so one doesn'y reinvent the wheel.
 
-
-
 def prime_number(x):
     ''' Get all prime numbers that are less than x.
     '''

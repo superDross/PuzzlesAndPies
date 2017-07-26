@@ -6,7 +6,7 @@ What is the smallest positive number that is evenly divisible by all of the numb
 import numpy as np
 
 
-# Since we knwo 2520 is evenly divisible by the 1-10
+# Since we know 2520 is evenly divisible by the 1-10
 # then the number we want is an increment of 2520
 
 def main():

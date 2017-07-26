@@ -5,7 +5,7 @@ What is the 10 001st prime number?
 '''
 import numpy as np
 
-# slow answer
+# Slow answer. I am sure there is an algorithm out there to speed thid function up.
 
 def prime_number(x):
     ''' Get the x sequential prime number.
@@ -20,7 +20,6 @@ def prime_number(x):
             c += 1
             yield n
         n += 1
-
 
 
 # 104743

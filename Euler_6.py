@@ -15,7 +15,7 @@ import numpy as np
 # the sum of the square
 sm = np.sum(np.arange(1,101) ** 2)
 
-# square of the sum of the first ten nums
+# square of the sum 
 sq = np.sum(np.arange(1,101)) ** 2
 
 # 25164150
