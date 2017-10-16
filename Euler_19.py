@@ -14,13 +14,8 @@ You are given the following information, but you may prefer to do some research 
 
 How many Sundays fell on the first of the month during the twentieth century (1 Jan 1901 to 31 Dec 2000)?
 '''
-import numpy as np
-
-NUM2DAY = {1: 'Monday', 2: 'Tuesday', 3: 'Wednseday', 4: 'Thursday', 
-           5: 'Friday', 6: 'Saturday', 7: 'Sunday'}
-
 def get_number_of_days(month, year):
-    leap_years = np.arange(1904, 2018)[::4]
+    leap_years = [x for x in range(1904, 2001)][::4]
     if month in [4, 6, 9, 11]:
         return 30
     elif month == 2 and year in leap_years:
@@ -36,18 +31,17 @@ def update_weekday(weekday):
         weekday = 1
     return weekday
 
-def get_weekday(date):
-    date = [int(x) for x in date.split("/")]
-    weekday = 0
-    for year in range(1900, 2018):
+def get_sundays(weekday=2, sundays=0):
+    for year in range(1901, 2001):
         for month in range(1, 13):
             days = get_number_of_days(month, year) + 1
             for day in range(1, days):
+                if weekday == 7 and day == 1:
+                    sundays += 1
                 weekday = update_weekday(weekday)
-                if [day, month, year] == date: 
-                    return (NUM2DAY[weekday], day, month, year)
+    return sundays
 
 
-# Sunday
-answer = get_weekday('31/12/2000')
+# 171
+answer = get_sundays()
 print(answer)
