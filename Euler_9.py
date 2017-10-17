@@ -9,27 +9,24 @@ For example, 3**2 + 4**2 = 9 + 16 = 25 = 5**2.
 There exists exactly one Pythagorean triplet for which a + b + c = 1000.
 Find the product abc.
 '''
+import numpy as np
 
 def py_triplet(x):
-    ''' Get the pythagorean triplet
-        when only given the summary
-        of the triplet.
+    ''' Get the pythagorean triplet when only 
+        given the summary of the triplet.
     '''
-    sqrt = lambda x: x**(1/2)
-
-    for a in range(1, x):
-        for b in range(1, x):
-            c = sqrt((a**2) + (b**2))
-            abc = a+b+c
-            
-            if abc == x and a < b < c:
-                return a, b, c
-               
-            elif c > x:
-                b = 0
-                break
+    a = np.arange(1, x)
+    b = np.arange(1, x)
+    c = np.sqrt((a[:, np.newaxis] ** 2) + (b ** 2))
+    # get all additional combinations of a, b & c
+    ab = a[:, np.newaxis] + b
+    abc = c+ab
+    # find indexes containing value x, no need to check more than one
+    coords = np.where(abc == x)
+    x, y = list(coords[0])
+    return a[x], b[y], c[x, y]
 
 
-# (200, 375, 425) 
+# (200, 375, 425)
 answer = py_triplet(1000)
 print(answer)
