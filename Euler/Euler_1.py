@@ -18,10 +18,7 @@ def sum_of_multiples_np():
 
 def sum_of_multiples():
     ''' Using a list to store all multiples.'''
-    all_multiples = []
-    for n in range(1, 1000):
-        if n % 3 == 0 or n % 5 == 0:
-            all_multiples.append(n)
+    all_multiples = [n for n in range(1, 1000) if n % 3 == 0 or n % 5 == 0]
     return sum(all_multiples)
 
 
