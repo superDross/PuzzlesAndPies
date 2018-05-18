@@ -18,7 +18,9 @@ nums2 = [3, 4]
 
 The median is (2 + 3)/2 = 2.5
 '''
+import numpy as np
 import math
+import time
 
 
 def find_median_sorted_arrays(nums1, nums2):
@@ -33,5 +35,19 @@ def find_median_sorted_arrays(nums1, nums2):
     return median
 
 
+def find_median_sorted_arrays_np(nums1, nums2):
+    sl = np.append(np.sort(nums1), np.sort(nums2))
+    return np.median(sl)
+
+
+t0 = time.time()
 answer = find_median_sorted_arrays([1, 2], [3, 4])
+t1 = time.time()
+print('Standard Python answer:\t', t1-t0, 'Seconds')
+print(answer)
+
+t2 = time.time()
+answer = find_median_sorted_arrays_np([1, 2], [3, 4])
+t3 = time.time()
+print('NumPy answer:\t', t3-t2, 'Seconds')
 print(answer)
