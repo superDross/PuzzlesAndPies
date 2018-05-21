@@ -11,20 +11,18 @@ Output: 7 -> 0 -> 8
 Explanation: 342 + 465 = 807.
 '''
 
-
-def add_two_nums(l1, l2):
-    """
-    :type l1: ListNode
-    :type l2: ListNode
-    :rtype: ListNode
-    """
-    l1 = l1[::-1]
-    l2 = l2[::-1]
-    l1 = int(''.join(str(x) for x in l1))
-    l2 = int(''.join(str(x) for x in l2))
-    return [int(x) for x in list(str(l1 + l2))][::-1]
-
-
-l1 = [2, 4, 3]
-l2 = [5, 6, 4]
-print(add_two_nums(l1, l2))
+def addTwoNumbers(l1, l2):
+    node1 = l1
+    node2 = l2
+    list1 = []
+    list2 = []
+    while node1 is not None:
+        list1.append(node1.val)
+        node1 = node1.next
+    while node2 is not None:
+        list2.append(node2.val)
+        node2 = node2.next
+    convert1 = int(''.join([str(x) for x in list1[::-1]]))
+    convert2 = int(''.join([str(x) for x in list2[::-2]]))
+    strlist = list(str(convert1+convert2))[::-1]
+    return [int(x) for x in strlist]
